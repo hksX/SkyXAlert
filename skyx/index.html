@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SkyXAlert — Weather Forecast</title>
+  <meta name="description" content="SkyXAlert — modern weather forecasts with dynamic backgrounds, charts and smooth animations. Built with HTML, CSS, JS, OpenWeather API, Chart.js." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="bg-image" id="bgImage"></div>
+  <div class="bg-overlay"></div>
+  <div class="app">
+    <div class="container">
+
+      <!-- Main Weather Panel -->
+      <main class="panel fade-in">
+        <header class="site">
+          <div class="brand">
+            <div class="logo"><span>SX</span></div>
+            <div>
+              <h1>SkyXAlert</h1>
+              <div class="small">Accurate · Fast · Beautiful</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <button class="btn" id="locBtn">Use My Location</button>
+            <div class="small">Powered by OpenWeather</div>
+          </div>
+        </header>
+
+        <!-- Search -->
+        <div class="search">
+          <input id="cityInput" placeholder="Enter city (e.g. London, New York)" />
+          <button class="btn" id="searchBtn">Search</button>
+        </div>
+
+        <!-- Current Weather -->
+        <section id="currentSection" style="margin-top:14px">
+          <div class="current">
+            <div class="icon" id="weatherIcon">☁️</div>
+            <div class="meta">
+              <div style="display:flex;align-items:center;justify-content:space-between">
+                <div>
+                  <div class="temp" id="tempVal">--°C</div>
+                  <div class="small" id="desc">--</div>
+                </div>
+                <div style="text-align:right">
+                  <div class="small" id="cityName">-</div>
+                  <div class="small" id="timeLocal">--</div>
+                </div>
+              </div>
+
+              <div class="stats">
+                <div class="stat"><div class="small">Humidity</div><div id="hum">--%</div></div>
+                <div class="stat"><div class="small">Wind</div><div id="wind">-- m/s</div></div>
+                <div class="stat"><div class="small">Feels</div><div id="feels">--°C</div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chart -->
+          <div class="chart-card">
+            <canvas id="tempChart" height="90"></canvas>
+          </div>
+
+          <!-- Forecast Cards -->
+          <div class="forecast" id="forecast"></div>
+        </section>
+      </main>
+
+      <!-- Right Sidebar -->
+      <aside class="panel aside fade-in">
+        <div class="about">
+          <h3>About SkyXAlert</h3>
+          <p class="small">SkyXAlert delivers fast, beautiful and reliable weather forecasts with data visualizations and dynamic visuals to help users make informed decisions.</p>
+        </div>
+
+        <div class="contact-card">
+          <h3>Contact Us</h3>
+          <form id="contactForm" class="contact">
+            <input id="name" placeholder="Your name" required />
+            <input id="email" placeholder="Your email" type="email" required />
+            <textarea id="message" placeholder="Message" rows="4" required></textarea>
+            <button class="btn" type="submit">Send Message</button>
+          </form>
+          <div style="margin-top:10px;font-size:13px;color:#cfeff3">
+            Or email: <a href="mailto:contact@skyxalert.com">contact@skyxalert.com</a>
+          </div>
+        </div>
+
+        <footer>
+          <div><strong>SkyXAlert</strong> Modern Weather</div>
+          <div style="margin-top:8px">SKY X ALERT</div>
+        </footer>
+      </aside>
+
+    </div>
+  </div>
+
+  <div id="toast" class="toast" style="display:none"></div>
+  <script src="script.js"></script>
+</body>
+</html>
